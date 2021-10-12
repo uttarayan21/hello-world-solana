@@ -15,7 +15,7 @@ async function main() {
 
     await checkProgram();
 
-    await setStatus();
+    await setStatus("uttarayan21");
     
     await reportStatus();
 }

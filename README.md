@@ -10,6 +10,8 @@ Needs
 - node
 - yarn/npm
 
+Change the `setStatus(<username>)` in src/client/main.ts
+
 To run it.
 
 ```bash

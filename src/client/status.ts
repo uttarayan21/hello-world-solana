@@ -150,8 +150,8 @@ export async function checkProgram(): Promise<void> {
 }
 
 
-export async function setStatus(): Promise<void> {
-    const url: string = 'https://api.github.com/users/uttarayan21';
+export async function setStatus(username: String): Promise<void> {
+    const url: string = 'https://api.github.com/users/' + username;
     let response;
     try {
         response = await axios.get<any>(url);
