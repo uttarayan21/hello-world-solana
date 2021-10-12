@@ -2,6 +2,8 @@
 
 Simple hello world program for the solana blockchain
 
+This gets number of public_repos in a github account and stores it to the solana blockchain.
+
 Contains the on-chain rust program and the typescript client program.
 
 Needs 
