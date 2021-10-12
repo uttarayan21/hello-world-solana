@@ -9,14 +9,13 @@ import {
 async function main() {
     console.log("Display solana status");
 
-    // await establishConnection();
+    await establishConnection();
 
-    // await establishPayer();
+    await establishPayer();
 
+    await checkProgram();
 
-  // await checkProgram();
-
-  await setStatus();
+    await setStatus();
 }
 
 main().then(

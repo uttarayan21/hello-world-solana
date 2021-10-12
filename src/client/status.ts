@@ -128,7 +128,7 @@ export async function checkProgram(): Promise<void> {
         console.log(
           'Creating account',
           statusPubkey.toBase58(),
-          'to say hello to',
+          'to store your github public repos',
         );
         const lamports = await connection.getMinimumBalanceForRentExemption(
           STATUS_SIZE,
