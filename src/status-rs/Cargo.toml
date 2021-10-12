@@ -1,0 +1,18 @@
+[package]
+edition = "2018"
+name = "hello-solana"
+version = "0.1.0"
+
+[features]
+default = ["custom-panic"]
+no-entrypoint = []
+custom-panic = []
+
+[dependencies]
+borsh = "0.9.1"
+solana-program = "1.8.0"
+
+[lib]
+name="hellosolana"
+crate-type=["cdylib", "lib"]
+

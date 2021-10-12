@@ -1,0 +1,24 @@
+{
+  "name": "hello-solana",
+  "version": "1.0.0",
+  "author": "Uttarayan Mondal <email@uttarayan.me>",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node src/client/main.ts",
+    "build": "cargo build-bpf --manifest-path=./src/status-rs/Cargo.toml --bpf-out-dir=dist/program",
+    "deploy": "solana program deploy dist/program/hellosolana.so"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.29.2",
+    "axios": "^0.22.0",
+    "borsh": "^0.6.0",
+    "mz": "^2.7.0",
+    "yaml": "^1.10.2"
+  },
+  "devDependencies": {
+    "@types/mz": "^2.7.4",
+    "@types/yaml": "^1.9.7",
+    "ts-node": "^10.3.0",
+    "typescript": "^4.4.3"
+  }
+}
