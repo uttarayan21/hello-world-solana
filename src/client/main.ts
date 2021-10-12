@@ -3,7 +3,7 @@ import {
     establishPayer,
     checkProgram,
     setStatus,
-
+    reportStatus,
 } from './status';
 
 async function main() {
@@ -16,6 +16,8 @@ async function main() {
     await checkProgram();
 
     await setStatus();
+    
+    await reportStatus();
 }
 
 main().then(

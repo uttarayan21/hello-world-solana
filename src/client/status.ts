@@ -115,10 +115,10 @@ export async function checkProgram(): Promise<void> {
     }
     console.log(`Using program ${programId.toBase58()}`);
 
-    const GREETING_SEED = 'hello';
+    const STATUS_SEED = 'status';
     statusPubkey = await PublicKey.createWithSeed(
     payer.publicKey,
-    GREETING_SEED,
+    STATUS_SEED,
     programId,
     );
 
@@ -138,7 +138,7 @@ export async function checkProgram(): Promise<void> {
           SystemProgram.createAccountWithSeed({
             fromPubkey: payer.publicKey,
             basePubkey: payer.publicKey,
-            seed: GREETING_SEED,
+            seed: STATUS_SEED,
             newAccountPubkey: statusPubkey,
             lamports,
             space: STATUS_SIZE,
@@ -181,6 +181,25 @@ export async function setStatus(): Promise<void> {
 }
 
 
+export async function reportStatus(): Promise<void> {
+  const accountInfo = await connection.getAccountInfo(statusPubkey);
+  if (accountInfo === null) {
+    throw 'Error: cannot find the greeted account';
+  }
+  const status = borsh.deserialize(
+    StatusSchema,
+    StatusAccount,
+    accountInfo.data,
+  );
+  console.log(
+    statusPubkey.toBase58(),
+    'has',
+    status.repos,
+    'public repos',
+  );
+}
+
+
 function longToByteArray(long: number) {
     var byteArray = [0, 0, 0, 0];
 
@@ -192,3 +211,4 @@ function longToByteArray(long: number) {
 
     return byteArray;
 };
+
